@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7eee4">
+  <title>OG Studios | Fotografía y creación de contenido</title>
+
+  <style>
+    :root {
+      --crema: #fff8ef;
+      --durazno: #f3c7a5;
+      --terracota: #c87550;
+      --verde: #617d70;
+      --oscuro: #302b27;
+      --blanco: #ffffff;
+      --gris: #746e68;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--crema);
+      color: var(--oscuro);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 22px 18px;
+      background: var(--crema);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--terracota);
+    }
+
+    .logo span {
+      color: var(--verde);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--oscuro);
+      font-size: 13px;
+      margin-left: 12px;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 65px 22px;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(48,43,39,.78), rgba(97,125,112,.72)),
+        linear-gradient(135deg, #c87550, #617d70);
+      color: white;
+    }
+
+    .hero small {
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 8vw, 54px);
+      line-height: 1.12;
+      margin: 18px 0;
+    }
+
+    .hero p {
+      max-width: 520px;
+      margin: auto;
+      font-size: 16px;
+    }
+
+    .hero .slogan {
+      color: #ffe1c8;
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 19px;
+    }
+
+    .hero a {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 13px 24px;
+      border-radius: 30px;
+      background: var(--crema);
+      color: var(--oscuro);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 48px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      color: var(--verde);
+    }
+
+    .section-title p {
+      color: var(--gris);
+      font-size: 14px;
+      margin-top: 7px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .service {
+      background: var(--blanco);
+      border-radius: 16px;
+      padding: 21px;
+      border: 1px solid #f0dfd0;
+      box-shadow: 0 5px 16px rgba(60,40,20,.04);
+    }
+
+    .service h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .service p {
+      color: var(--gris);
+      font-size: 13px;
+    }
+
+    .price {
+      display: block;
+      color: var(--terracota);
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .booking {
+      background: #f3e5d8;
+    }
+
+    .form-card {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 8px 25px rgba(60,40,20,.06);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #e5d7ca;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fffdfa;
+      color: var(--oscuro);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--durazno);
+      border-color: var(--terracota);
+    }
+
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .estimate {
+      background: var(--crema);
+      padding: 17px;
+      border-radius: 12px;
+      margin: 18px 0;
+      border: 1px dashed var(--terracota);
+    }
+
+    .estimate strong {
+      display: block;
+      color: var(--verde);
+      font-size: 14px;
+    }
+
+    .estimate span {
+      display: block;
+      font-size: 25px;
+      font-weight: bold;
+      color: var(--terracota);
+      margin-top: 5px;
+    }
+
+    .whatsapp {
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 30px;
+      background: #278b58;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 16px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .whatsapp:hover {
+      background: #1d7046;
+      transform: translateY(-2px);
+    }
+
+    .note {
+      color: var(--gris);
+      font-size: 12px;
+      text-align: center;
+      margin-top: 13px;
+    }
+
+    .about {
+      text-align: center;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .about p {
+      color: var(--gris);
+      margin-top: 10px;
+    }
+
+    footer {
+      background: var(--oscuro);
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #f3c7a5;
+    }
+
+    @media (min-width: 650px) {
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      section {
+        padding: 65px 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">OG <span>STUDIOS</span></div>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#reservas">Reservas</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <small>Fotografía · Creatividad · Contenido</small>
+      <h1>Tu historia merece ser contada.</h1>
+      <p>
+        Creamos fotografías y contenido audiovisual para personas,
+        emprendimientos y empresas en Barrancabermeja.
+      </p>
+      <p class="slogan">Capturamos momentos, creamos recuerdos.</p>
+      <a href="#reservas">Solicitar una sesión</a>
+    </div>
+
+    <section id="servicios">
+      <div class="section-title">
+        <h2>Nuestros servicios</h2>
+        <p>Encuentra la experiencia fotográfica ideal para ti.</p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <h3>📸 Sesión individual básica</h3>
+          <p>Una sesión sencilla para capturar tu esencia.</p>
+          <span class="price">$ 180.000</span>
+        </article>
+
+        <article class="service">
+          <h3>✨ Sesión individual premium</h3>
+          <p>Una experiencia más completa y personalizada.</p>
+          <span class="price">$ 280.000</span>
+        </article>
+
+        <article class="service">
+          <h3>🌟 Sesión fotográfica especial</h3>
+          <p>Para ocasiones y conceptos que merecen destacarse.</p>
+          <span class="price">$ 390.000</span>
+        </article>
+
+        <article class="service">
+          <h3>🎂 Fotografía para cumpleaños</h3>
+          <p>Conserva los mejores momentos de tu celebración.</p>
+          <span class="price">$ 250.000</span>
+        </article>
+
+        <article class="service">
+          <h3>❤️ Sesión de pareja</h3>
+          <p>Fotografías para contar una historia juntos.</p>
+          <span class="price">$ 280.000</span>
+        </article>
+
+        <article class="service">
+          <h3>👨‍👩‍👧 Sesión familiar</h3>
+          <p>Recuerdos especiales con las personas que amas.</p>
+          <span class="price">$ 350.000</span>
+        </article>
+
+        <article class="service">
+          <h3>🏢 Fotografía para emprendimientos</h3>
+          <p>Imágenes profesionales para impulsar tu marca.</p>
+          <span class="price">$ 300.000</span>
+        </article>
+
+        <article class="service">
+          <h3>🛍️ Fotografía de productos</h3>
+          <p>Presenta tus productos de forma atractiva.</p>
+          <span class="price">$ 220.000</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="booking" id="reservas">
+      <div class="section-title">
+        <h2>Solicita tu reserva</h2>
+        <p>Personaliza tu experiencia y envíanos tu solicitud.</p>
+      </div>
+
+      <div class="form-card">
+        <form id="bookingForm">
+
+          <div class="form-group">
+            <label for="nombre">Nombre del cliente</label>
+            <input
+              type="text"
+              id="nombre"
+              placeholder="Escribe tu nombre"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="tipo">Tipo de sesión o servicio</label>
+            <select id="tipo" required>
+              <option value="">Selecciona una opción</option>
+              <option value="Sesión individual básica">Sesión individual básica</option>
+              <option value="Sesión individual premium">Sesión individual premium</option>
+              <option value="Sesión fotográfica especial">Sesión fotográfica especial</option>
+              <option value="Fotografía para cumpleaños">Fotografía para cumpleaños</option>
+              <option value="Sesión de pareja">Sesión de pareja</option>
+              <option value="Sesión familiar">Sesión familiar</option>
+              <option value="Fotografía para emprendimientos">Fotografía para emprendimientos</option>
+              <option value="Fotografía de productos">Fotografía de productos</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="paquete">Paquete que deseas contratar</label>
+            <select id="paquete" required>
+              <option value="">Selecciona el paquete</option>
+              <option value="Esencial">Esencial</option>
+              <option value="Premium">Premium</option>
+              <option value="Deluxe">Deluxe</option>
+              <option value="Por definir con el estudio">Quiero asesoría para elegir</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fecha">Fecha deseada</label>
+            <input type="date" id="fecha" required>
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Cuéntanos qué necesitas</label>
+            <textarea
+              id="descripcion"
+              placeholder="Describe la idea de tu sesión, ocasión, lugar o resultado que deseas..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="estimate">
+            <strong>Precio del servicio seleccionado</strong>
+            <span id="precio">$ 0</span>
+            <small>Valor estimado según el servicio. El paquete y los detalles se confirman con el estudio.</small>
+          </div>
+
+          <button class="whatsapp" type="submit">
+            Enviar por WhatsApp
+          </button>
+
+          <p class="note">
+            Tu solicitud se enviará directamente a OG Studios.
+            La fecha queda pendiente de confirmación.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="about">
+        <div class="section-title">
+          <h2>Sobre OG Studios</h2>
+        </div>
+        <p>
+          Somos un emprendimiento creativo dedicado a la fotografía
+          y creación de contenido para personas, marcas y empresas.
+          Queremos transformar ideas en imágenes y recuerdos que perduren.
+        </p>
+        <p><strong>Barrancabermeja, Santander.</strong></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>OG STUDIOS</strong></p>
+    <p>Capturamos momentos, creamos recuerdos.</p>
+    <p>Proyecto académico · Creación de Empresas · UNIPAZ 2026</p>
+  </footer>
+
+  <script>
+    const precios = {
+      "Sesión individual básica": 180000,
+      "Sesión individual premium": 280000,
+      "Sesión fotográfica especial": 390000,
+      "Fotografía para cumpleaños": 250000,
+      "Sesión de pareja": 280000,
+      "Sesión familiar": 350000,
+      "Fotografía para emprendimientos": 300000,
+      "Fotografía de productos": 220000
+    };
+
+    const tipo = document.getElementById("tipo");
+    const precio = document.getElementById("precio");
+    const fecha = document.getElementById("fecha");
+
+    // Evita seleccionar fechas anteriores a hoy.
+    const hoy = new Date();
+    const fechaLocal = new Date(
+      hoy.getTime() - hoy.getTimezoneOffset() * 60000
+    ).toISOString().split("T")[0];
+
+    fecha.min = fechaLocal;
+
+    // Actualiza el precio cuando el cliente elige un servicio.
+    tipo.addEventListener("change", function () {
+      const valor = precios[tipo.value] || 0;
+
+      precio.textContent = valor.toLocaleString("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumFractionDigits: 0
+      });
+    });
+
+    // Construye la solicitud y la abre en WhatsApp.
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const servicio = tipo.value;
+      const paquete = document.getElementById("paquete").value;
+      const dia = fecha.value;
+      const descripcion = document.getElementById("descripcion").value.trim();
+
+      if (!nombre || !servicio || !paquete || !dia || !descripcion) {
+        alert("Por favor, completa todos los campos.");
+        return;
+      }
+
+      const valor = precios[servicio];
+
+      const precioTexto = valor.toLocaleString("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumFractionDigits: 0
+      });
+
+      const mensaje = [
+        "¡Hola, OG Studios! Quiero solicitar una reserva.",
+        "",
+        "Nombre: " + nombre,
+        "Servicio: " + servicio,
+        "Paquete: " + paquete,
+        "Fecha deseada: " + dia.split("-").reverse().join("/"),
+        "Precio estimado: " + precioTexto,
+        "Descripción: " + descripcion,
+        "",
+        "Quedo pendiente de la disponibilidad y confirmación. ¡Gracias!"
+      ].join("\n");
+
+      const telefono = "573223276233";
+      const url = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(mensaje);
+
+      // Abre WhatsApp; si el navegador bloquea la ventana nueva, abre en la misma pestaña.
+      const ventana = window.open(url, "_blank");
+      if (!ventana) {
+        window.location.href = url;
+      }
+    });
+  </script>
+
+</body>
+</html>
